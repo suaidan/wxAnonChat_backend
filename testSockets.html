@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test html</title>
+</head>
+<body>
+<div id = "div1">
+    llallall
+</div>
+</body>
+<script type="text/javascript">
+    var div1 = document.getElementById('div1');
+    var ws = new WebSocket("ws://localhost:8000");
+    ws.onopen = function(res){
+        console.log("open socket");
+    }
+    ws.onmessage = function(res){
+        var data = JSON.parse(res.data);
+        div1.innerHTML = data;
+        console.log(data)
+    }
+    ws.onclose = function(code){
+        console.log("close socket");
+    }
+</script>
+</html>
