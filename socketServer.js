@@ -1,6 +1,7 @@
 const url = require('url');
-const ws = require('ws');
-const fs = require('fs');
+const ws = require('ws');//用来创建websocket
+const fs = require('fs');//对系统文件及目录进行读写操作
+const jwt=require('jsonwebtoken');
 const express = require('express');
 const http = require('http');
 const https = require('https');
@@ -16,6 +17,7 @@ var socketArray = {};
 const wss = new ws.Server({ server });
 const dbMethod = require("./dbMethod");
 // *************************http服务和https服务**********************************
+// app.set('jwtTokenSecret','spg_is_handsome')
 server.listen(PORT, function() {
     console.log('HTTP Server is running on: http://localhost:%s', PORT);
 });
@@ -40,6 +42,9 @@ app.post('/',function(req,res){
         res.status(200).send('Welcome!');
     }
 })
+var token=jwt.sign({
+    iss:"supange"
+},certificate,{expiresln:"30days"});
 wss.on("connection",function(ws, resquest){
     console.log("connect socket");
     var arr = new Array({id:123,name:"supange",text:"smart",count:10,updated:"2017-1-12"},
@@ -51,11 +56,17 @@ wss.on("connection",function(ws, resquest){
     initData.rooms = arr;
     ws.send(JSON.stringify(initData));
     ws.on("message",function(message){
-        var data = JSON.parse(message);
+        // var data = JSON.parse(message);
         socketArray[data.name] = ws;
-        if(data.to&&socketArray[data.to]){
-            socketArray[data.to].send(JSON.stringify(data.content))
-        }
+        var messageArr=message.toString().split(" ");
+        // foreach(var key in messageArr){
+        //     // if(key === "notoken"){
+        //     //     console.log("notoken");
+        //     // }
+        // }
+        // if(data.to&&socketArray[data.to]){
+        //     socketArray[data.to].send(JSON.stringify(data.content))
+        // }
         // ws.send(JSON.stringify({
         //     content:[data.content],
         //     me:true,
