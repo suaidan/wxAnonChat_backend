@@ -1,12 +1,12 @@
 const url = require('url');
 const ws = require('ws');//用来创建websocket
 const fs = require('fs');//对系统文件及目录进行读写操作
-const jwt=require('jsonwebtoken');
+const tokens=require('token');
 const express = require('express');
 const http = require('http');
 const https = require('https');
-var privateKey  = fs.readFileSync('private.pem', 'utf8');
-var certificate = fs.readFileSync('file.crt', 'utf8');
+var privateKey  = fs.readFileSync('resource/private.pem', 'utf8');
+var certificate = fs.readFileSync('resource/file.crt', 'utf8');
 var credentials = {key: privateKey, cert: certificate};
 const app = express();
 var server = http.createServer(app);
@@ -42,21 +42,23 @@ app.post('/',function(req,res){
         res.status(200).send('Welcome!');
     }
 })
-var token=jwt.sign({
-    iss:"supange"
-},certificate,{expiresln:"30days"});
 wss.on("connection",function(ws, resquest){
     console.log("connect socket");
-    var arr = new Array({id:123,name:"supange",text:"smart",count:10,updated:"2017-1-12"},
-      { id: 234, name: "spg",text: "smart", updated: "2017-1-12"},
-      { id: 345, name: "zks",text: "smart", updated: "2017-1-12"})
-    var initData = {};
-    initData.cmd = "CMD";
-    initData.subCmd = "ROOMS";
-    initData.rooms = arr;
-    ws.send(JSON.stringify(initData));
+    // var arr = new Array({id:123,name:"supange",text:"smart",count:10,updated:"2017-1-12"},
+    //   { id: 234, name: "spg",text: "smart", updated: "2017-1-12"},
+    //   { id: 345, name: "zks",text: "smart", updated: "2017-1-12"})
+    // var initData = {};
+    // initData.cmd = "CMD";
+    // initData.subCmd = "ROOMS";
+    // initData.rooms = arr;
+    // ws.send(JSON.stringify(initData));
     ws.on("message",function(message){
-        // var data = JSON.parse(message);
+        var data = JSON.parse(message);
+        if(data.token=="notoken"){
+            tokens.generateToken(audience,false);
+        }else{
+            tokens.verify(token,{});
+        }
         socketArray[data.name] = ws;
         var messageArr=message.toString().split(" ");
         // foreach(var key in messageArr){

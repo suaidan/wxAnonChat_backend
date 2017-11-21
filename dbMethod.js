@@ -1,9 +1,11 @@
 const monObj = require("./db");
 var mon = monObj.mongoose;
+var userCounter=0;
 // ***********************插入操作*******************************
 function insertUser( name, pwd, status, avatar, profile){
     var user =  new monObj.User({
         username:name,
+        id:++userCounter,
         pwd : pwd,
         status : status,
         avator : avatar,
@@ -17,9 +19,9 @@ function insertUser( name, pwd, status, avatar, profile){
         }
     })
 }
-function insertContent(name,to, text, img, time, readed){
+function insertContent(id,to, text, img, time, readed){
     var content = new monObj.Content({
-        username : name,
+        userId : id,
         text : text,
         to:to,
         img : img,
@@ -34,10 +36,10 @@ function insertContent(name,to, text, img, time, readed){
         }
     })
 }
-function insertRooms(list, name){
+function insertRooms(list, id){
     var rooms = new monObj.Rooms({
         list : list,
-        username : name
+        userId : id
     })
     rooms.save(function(err, res){
         if(err){

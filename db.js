@@ -8,21 +8,22 @@ var db = mongoose.connect(dbURL);
         console.error("connect error: "+err)
     })
     mongoose.connection.on("disconnected",function(){
-        console.log("disconnected")
+        console.log("mongodb disconnected")
     })
 var Schema = mongoose.Schema;
 // 存放用户数据
 var user = new Schema({
-    username : {type:String,index:true},
+    username : {type:String},
     pwd : {type:String},
+    id:{type:Number,index:true},
     status : {type:String, default:"offline"},
     profile:{type:String},
     avatar : {type:String}//存放路径
 });
 //存放聊天内容
 var content = new Schema({
-    username : {type:String,index:true},
-    to:{type:String},
+    userId : {type:Number,index:true},
+    to:{type:String},//存放发给谁的
     text : {type:String},
     img : {type:String},//存放路径
     time : {type:Date, default:new Date()},
@@ -31,7 +32,7 @@ var content = new Schema({
 //存放用户消息列表
 var rooms = new Schema({
     list : {type:Object},
-    username : {type:String,index : true}
+    userId : {type:Number,index : true}
 })
 module.exports = {
     mongoose : mongoose,
