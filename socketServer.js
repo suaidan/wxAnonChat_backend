@@ -1,7 +1,7 @@
 const url = require('url');
 const ws = require('ws');//用来创建websocket
 const fs = require('fs');//对系统文件及目录进行读写操作
-const tokens=require('token');
+const Analyse=require('AnalyseMessage');
 const express = require('express');
 const http = require('http');
 const https = require('https');
@@ -15,7 +15,7 @@ var PORT = 8000;
 var SSLPORT = 8766;
 var socketArray = {};
 const wss = new ws.Server({ server });
-const dbMethod = require("./dbMethod");
+// const dbMethod = require("./dbMethod");
 // *************************http服务和https服务**********************************
 // app.set('jwtTokenSecret','spg_is_handsome')
 server.listen(PORT, function() {
@@ -44,37 +44,10 @@ app.post('/',function(req,res){
 })
 wss.on("connection",function(ws, resquest){
     console.log("connect socket");
-    // var arr = new Array({id:123,name:"supange",text:"smart",count:10,updated:"2017-1-12"},
-    //   { id: 234, name: "spg",text: "smart", updated: "2017-1-12"},
-    //   { id: 345, name: "zks",text: "smart", updated: "2017-1-12"})
-    // var initData = {};
-    // initData.cmd = "CMD";
-    // initData.subCmd = "ROOMS";
-    // initData.rooms = arr;
-    // ws.send(JSON.stringify(initData));
+
     ws.on("message",function(message){
-        var data = JSON.parse(message);
-        if(data.token=="notoken"){
-            tokens.generateToken(audience,false);
-        }else{
-            tokens.verify(token,{});
-        }
+       var data= Analyse.AnalyseMsg(message);
         socketArray[data.name] = ws;
-        var messageArr=message.toString().split(" ");
-        // foreach(var key in messageArr){
-        //     // if(key === "notoken"){
-        //     //     console.log("notoken");
-        //     // }
-        // }
-        // if(data.to&&socketArray[data.to]){
-        //     socketArray[data.to].send(JSON.stringify(data.content))
-        // }
-        // ws.send(JSON.stringify({
-        //     content:[data.content],
-        //     me:true,
-        //     cmd:'MESSAGE'
-        // }));
-        console.log("received:"+message.toString());
     })
     ws.on("close",function(code){
         console.log("closed:"+code);

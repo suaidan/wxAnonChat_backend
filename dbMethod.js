@@ -2,9 +2,10 @@ const monObj = require("./db");
 var mon = monObj.mongoose;
 var userCounter=0;
 // ***********************插入操作*******************************
-function insertUser( name, pwd, status, avatar, profile){
+function insertUser( name,realname, pwd, status, avatar, profile){
     var user =  new monObj.User({
         username:name,
+        realname:realname,
         id:++userCounter,
         pwd : pwd,
         status : status,

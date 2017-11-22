@@ -3,7 +3,8 @@ var jwt=require("jsonwebtoken");
 function generateToken(audience,signed){
     var token=jwt.sign({
         iss:"supange",
-        aud:audience
+        aud:audience,
+        registered:signed
     },
     "spg_is_handsome",
     {
@@ -11,13 +12,16 @@ function generateToken(audience,signed){
     });
     return token;
 }
-function verifyToken(token,obj){
-    var result=jwt.verify(token,"spg_is_handsome",obj,
+function verifyToken(token){
+    var result;
+    jwt.verify(token,"spg_is_handsome",
+        { issuer:"supange"},
         function(err,decode){
             if(err){
-                return {"err":err,"decode":decode};
+                result= {"err":err,"decode":decode};
+                return;
             }
-            return decode;
+            result=decode;
     });
     return result;
 }

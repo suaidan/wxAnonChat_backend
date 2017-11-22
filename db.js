@@ -14,6 +14,7 @@ var Schema = mongoose.Schema;
 // 存放用户数据
 var user = new Schema({
     username : {type:String},
+    realname:{type:String},
     pwd : {type:String},
     id:{type:Number,index:true},
     status : {type:String, default:"offline"},
