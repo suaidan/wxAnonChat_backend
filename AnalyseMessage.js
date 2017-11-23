@@ -1,4 +1,4 @@
-var tokens=require("token");
+var tokens=require("./token");
 /**
  * 对客户端传进来的信息进行解析，返回一个对象
  * @param message 客户端传进来的信息
@@ -16,10 +16,10 @@ function analyseMessage(message) {
         makeToken(false);
         return resData;
     }else if(data.token.length>0){
-        var verifyResult=tokens.verifyToken(token);
+        var verifyResult=tokens.verifyToken(data.token);
         if(verifyResult.err){
             var err=verifyResult.err;
-            if(err.message=="jwt expired"){
+            if(err.message=="jwt expired"){//超时
                 if(verifyResult.registered==false){
                     //token超时且用户未注册
                     makeToken(false);
@@ -31,9 +31,17 @@ function analyseMessage(message) {
             }
             if(err.message="invalid token"){
                 //伪造的token
-                result={reason:"why token is invalid"}
+                resData={reason:"why token is invalid"}
             }
             console.log("token is wrong: %s",err);
+        }else{
+            console.log(verifyResult);
+            if(verifyResult.registered){
+                makeToken(true);//用户已经注册，延长token的有效期，从现在开始的30days。
+            }else{
+                resData.token=data.token;//token有效，但是为临时的，这里就不对token进行更改
+            }
+
         }
     }
     //用于平时进行对话

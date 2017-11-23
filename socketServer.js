@@ -1,7 +1,7 @@
 const url = require('url');
 const ws = require('ws');//用来创建websocket
 const fs = require('fs');//对系统文件及目录进行读写操作
-const Analyse=require('AnalyseMessage');
+const Analyse=require('./AnalyseMessage');
 const express = require('express');
 const http = require('http');
 const https = require('https');
@@ -44,9 +44,12 @@ app.post('/',function(req,res){
 })
 wss.on("connection",function(ws, resquest){
     console.log("connect socket");
-
     ws.on("message",function(message){
-       var data= Analyse.AnalyseMsg(message);
+        console.log("request data is:%s",JSON.parse(message).token);
+        console.log("request name is:%s",JSON.parse(message).name);
+        var data= Analyse.AnalyseMsg(message);
+        console.log("response data is:%s",data.token);
+        ws.send(JSON.stringify(data));
         socketArray[data.name] = ws;
     })
     ws.on("close",function(code){
