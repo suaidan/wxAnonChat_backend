@@ -45,6 +45,7 @@ app.post('/',function(req,res){
 wss.on("connection",function(ws, resquest){
     console.log("connect socket");
     ws.on("message",function(message){
+        console.log("message is :"+message)
         console.log("request data is:%s",JSON.parse(message).token);
         console.log("request name is:%s",JSON.parse(message).name);
         var data= Analyse.AnalyseMsg(message);

@@ -12,10 +12,11 @@ function generateToken(audience,signed){
     });
     return token;
 }
-function verifyToken(token){
+function verifyToken(usr,token){
     var result;
     jwt.verify(token,"spg_is_handsome",
-        { issuer:"supange"},
+        { issuer:"supange",
+        audience:usr},
         function(err,decode){
             if(err){
                 result= {"err":err,"decode":decode};

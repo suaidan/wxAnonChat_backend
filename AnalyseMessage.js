@@ -12,12 +12,12 @@ function analyseMessage(message) {
         resData.registered=regis;
     }
     //检验token
-    if(data.token=="notoken"){
+    if(data.token=="notoken"){//不存在token
         makeToken(false);
         return resData;
     }else if(data.token.length>0){
-        var verifyResult=tokens.verifyToken(data.token);
-        if(verifyResult.err){
+        var verifyResult=tokens.verifyToken(audience,data.token);
+        if(verifyResult.err){//token出错
             var err=verifyResult.err;
             if(err.message=="jwt expired"){//超时
                 if(verifyResult.registered==false){
@@ -28,18 +28,19 @@ function analyseMessage(message) {
                     //token超时且用户已注册
                     makeToken(true);
                 }
-            }
-            if(err.message="invalid token"){
+            }else if(err.message="invalid token"){
                 //伪造的token
-                resData={reason:"why token is invalid"}
+                resData={reason:"token is invalid", token:""}
+            }else{
+                resData={reason:err,token:""}
             }
             console.log("token is wrong: %s",err);
-        }else{
+        }else{//token正确
             console.log(verifyResult);
             if(verifyResult.registered){
                 makeToken(true);//用户已经注册，延长token的有效期，从现在开始的30days。
             }else{
-                resData.token=data.token;//token有效，但是为临时的，这里就不对token进行更改
+                makeToken(true);//resData.token=data.token;//token有效，但是为临时的，这里就不对token进行更改
             }
 
         }
