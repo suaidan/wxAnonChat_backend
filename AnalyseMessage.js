@@ -16,6 +16,7 @@ function analyseMessage(message) {
         makeToken(false);
         return resData;
     }else if(data.token.length>0){
+        //这里应该使用用户名和密码进行验证，但是具体形式还没想好
         var verifyResult=tokens.verifyToken(audience,data.token);
         if(verifyResult.err){//token出错
             var err=verifyResult.err;
