@@ -15,6 +15,8 @@ var PORT = 8000;
 var SSLPORT = 8766;
 var socketArray = {};
 const wss = new ws.Server({ server });
+var handler=require("./handleHelper");
+//用来传递处理函数
 // const dbMethod = require("./dbMethod");
 // *************************http服务和https服务**********************************
 // app.set('jwtTokenSecret','spg_is_handsome')
@@ -48,9 +50,10 @@ wss.on("connection",function(ws, resquest){
         console.log("message is :"+message)
         console.log("request data is:%s",JSON.parse(message).token);
         console.log("request name is:%s",JSON.parse(message).name);
-        var data= Analyse.AnalyseMsg(message);
+        var resdata={};
+        Analyse.AnalyseMsg(handler,message,resdata);
         console.log("response data is:%s",data.token);
-        ws.send(JSON.stringify(data));
+        ws.send(JSON.stringify(resdata));
         socketArray[data.name] = ws;
     })
     ws.on("close",function(code){
