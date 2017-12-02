@@ -4,9 +4,9 @@
 var tokens=require("./token");
 /**
  * 对客户端传进来的信息进行解析，返回一个对象
- * @param message 客户端传进来的信息
+ * @param message 客户端传进来的信息，即reqdata
  */
-function handleToken(message) {
+function handleToken(message,resdata) {
     var data=JSON.parse(message);
     var audience=data.name;
     var resData={name:audience};//返回的数据
@@ -48,6 +48,7 @@ function handleToken(message) {
 
         }
     }
+     //todo:需要进一步编写
     //用于平时进行对话
     // var arr = new Array({id:123,name:"supange",text:"smart",count:10,updated:"2017-1-12"},
     //   { id: 234, name: "spg",text: "smart", updated: "2017-1-12"},
