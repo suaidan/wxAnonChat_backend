@@ -14,6 +14,7 @@ function handleToken(message,resdata,ws) {
         resData.token=tokens.generateToken(audience,regis);
         resData.registered=regis;
     }
+    //链接数据库
     //检验token
     if(data.token=="notoken"){//不存在token
         makeToken(false);
