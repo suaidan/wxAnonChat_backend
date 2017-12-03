@@ -6,7 +6,7 @@ var tokens=require("./token");
  * 对客户端传进来的信息进行解析，返回一个对象
  * @param message 客户端传进来的信息，即reqdata
  */
-function handleToken(message,resdata) {
+function handleToken(message,resdata,ws) {
     var data=JSON.parse(message);
     var audience=data.name;
     var resData={name:audience};//返回的数据
@@ -74,7 +74,7 @@ function handleToken(message,resdata) {
     // }));
     //var messageArr=message.toString().split(" ");
     //console.log("received:"+message.toString());
-    return resData;
+    ws.send(JSON.toString(resData));
 }
 module.exports={
     token:handleToken
