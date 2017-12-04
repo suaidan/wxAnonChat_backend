@@ -52,7 +52,8 @@ function insertRooms(list, id){
 }
 // ***************************查询操作*********************************************
 function findDoc(moduleName, query){
-    moduleName.find(query, function(err, doc){
+
+   return moduleName.find(query, function(err, doc){
         if(err){
             console.log(err);
             return err;
@@ -97,7 +98,7 @@ module.exports = {
     insertUser : insertUser,
     insertContent : insertContent,
     insertRooms : insertRooms,
-    findDoc:finDoc,
+    findDoc:findDoc,
     update:update,
     count:count,
     remove:remove,

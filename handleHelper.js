@@ -3,6 +3,8 @@
  */
 var tokens=require("./token");
 var dbMethod=require("./dbMethod");
+var db=require("./db");
+var User=db.User;
 /**
  * 对客户端传进来的信息进行解析，返回一个对象
  * @param message 客户端传进来的信息，即reqdata
@@ -15,9 +17,9 @@ function handleToken(message,resdata,ws) {
         resData.token=tokens.generateToken(audience,regis);
         resData.registered=regis;
     }
-    //链接数据库
+    //链接数据库,比较耗费时间。
     var query={'name':audience}
-    var doc=dbMethod.find(query);
+    var doc=dbMethod.findDoc(User,query);
     //检验token
     if(data.token=="notoken"){//不存在token
         makeToken(false);
