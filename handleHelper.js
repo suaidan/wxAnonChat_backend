@@ -2,6 +2,7 @@
  * Created by 一苏 on 2017/11/30.
  */
 var tokens=require("./token");
+var dbMethod=require("./dbMethod");
 /**
  * 对客户端传进来的信息进行解析，返回一个对象
  * @param message 客户端传进来的信息，即reqdata
@@ -15,6 +16,8 @@ function handleToken(message,resdata,ws) {
         resData.registered=regis;
     }
     //链接数据库
+    var query={'name':'audience'}
+    var doc=dbMethod.find(query);
     //检验token
     if(data.token=="notoken"){//不存在token
         makeToken(false);
