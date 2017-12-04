@@ -16,7 +16,7 @@ function handleToken(message,resdata,ws) {
         resData.registered=regis;
     }
     //链接数据库
-    var query={'name':'audience'}
+    var query={'name':audience}
     var doc=dbMethod.find(query);
     //检验token
     if(data.token=="notoken"){//不存在token
