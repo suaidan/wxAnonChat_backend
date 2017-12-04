@@ -54,7 +54,8 @@ function insertRooms(list, id){
 function findDoc(moduleName, query){
     moduleName.find(query, function(err, doc){
         if(err){
-            console.log(err)
+            console.log(err);
+            return err;
         }else{
             console.log(doc)
             return doc
