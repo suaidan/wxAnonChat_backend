@@ -51,15 +51,15 @@ function insertRooms(list, id){
     })
 }
 // ***************************查询操作*********************************************
-function findDoc(moduleName, query){
+function findDoc(moduleName, query,callback){
 
-   return moduleName.find(query, function(err, doc){
+    moduleName.find(query, function(err, doc){
         if(err){
             console.log(err);
-            return err;
+            callback(err);
         }else{
-            console.log(doc)
-            return doc
+            console.log(doc);
+            callback(err);
         }
     })
 }
