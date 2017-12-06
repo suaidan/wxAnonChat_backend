@@ -19,10 +19,15 @@ function handleToken(message,resdata,ws) {
     }
     //链接数据库,比较耗费时间。
     var query={'name':audience}
-    var doc=dbMethod.findDoc(User,query);
-    if(doc.indexOf(err)){
-        console.log(err)
+//     var doc=dbMethod.findDoc(User,query);
+//     if(doc.indexOf(err)){
+//         console.log(err)
+//     }
+    function find(callback){
+        var result=dbMethod.findDoc(User,query);
+        return callback(result);
     }
+    var doc=find(function(e){return e})
     //检验token
     if(data.token=="notoken"){//不存在token
         makeToken(false);
