@@ -10,8 +10,7 @@ var User = db.User;
  * 对客户端传进来的信息进行解析，返回一个对象
  * @param message 客户端传进来的信息，即reqdata
  */
-function handleToken(message, resdata, ws) {
-    var data = JSON.parse(message);
+function handleToken(data, resdata, ws) {
     var audience = data.name;
     var resData = {name: audience};//返回的数据
     function makeToken(regis) {
@@ -26,6 +25,7 @@ function handleToken(message, resdata, ws) {
 //         console.log(err)
 //     }
     function handleDoc(doc) {
+
         if (data.token == "notoken") {//不存在token
             makeToken(false);
             return resData;
@@ -59,6 +59,7 @@ function handleToken(message, resdata, ws) {
 
             }
         }
+        ws.send(JSON.toString(resData));
     }
     dbMethod.findDoc(User, query,handleDoc);
     //检验token
@@ -89,7 +90,6 @@ function handleToken(message, resdata, ws) {
     // }));
     //var messageArr=message.toString().split(" ");
     //console.log("received:"+message.toString());
-    ws.send(JSON.toString(resData));
 }
 
 module.exports = {

@@ -55,11 +55,11 @@ function findDoc(moduleName, query,callback){
 
     moduleName.find(query, function(err, doc){
         if(err){
-            console.log(err);
+            console.log("db error:"+err);
             callback(err);
         }else{
-            console.log(doc);
-            callback(err);
+            console.log("db doc:"+doc);
+            callback(doc);
         }
     })
 }
