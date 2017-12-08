@@ -98,7 +98,7 @@ module.exports = {
     insertUser : insertUser,
     insertContent : insertContent,
     insertRooms : insertRooms,
-    findDoc:findDoc,
+    findDocs:findDoc,
     update:update,
     count:count,
     remove:remove,
