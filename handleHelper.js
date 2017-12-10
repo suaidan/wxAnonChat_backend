@@ -18,14 +18,25 @@ function handleToken(data, resdata, ws) {
         resData.registered = regis;
     }
 
-    //链接数据库,比较耗费时间。
-    var query = {'name': audience}
+    //查询数据库,比较耗费时间。
+    var query = {'realname': audience}
 //     var doc=dbMethod.findDoc(User,query);
 //     if(doc.indexOf(err)){
 //         console.log(err)
 //     }
     function handleDoc(doc) {
-
+        /**
+         * 这里主要是验证现在传进来的用户名是否和数据库中的一样
+         * 若用户更改，则对数据库进行更新，并且使用旧名称进行token验证
+         * 若验证成功，就使用新名称进行重新生成token。
+         */
+        if(doc.msg=="suc"||doc.data!=null){
+            if(doc[0].realname!=audience){
+                let query={'realname':doc[0].realname};
+                dbMethod.update(User,query,{"realname":audience});
+                audience=doc[0].realname;
+            }
+        }
         if (data.token == "notoken") {//不存在token
             makeToken(false);
             return resData;

@@ -36,8 +36,8 @@ var rooms = new Schema({
     userId : {type:Number,index : true}
 })
 module.exports = {
-    mongoose : mongoose,
-    User : new db.model("User",user),
-    Content : new db.model("Content",content),
-    Rooms : new db.model("Rooms",rooms)
+    'mongoose' : mongoose,
+    'User' :  mongoose.model("User",user),
+    'Content' :  mongoose.model("Content",content),
+    'Rooms' :  mongoose.model("Rooms",rooms)
 };
