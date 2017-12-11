@@ -12,9 +12,10 @@ var User = db.User;
  */
 function handleToken(data, resdata, ws) {
     var audience = data.name;
+    var pwd="";
     var resData = {name: audience};//返回的数据
     function makeToken(regis) {
-        resData.token = tokens.generateToken(audience, regis);
+        resData.token = tokens.generateToken(audience, pwd,regis);
         resData.registered = regis;
     }
 
@@ -35,6 +36,7 @@ function handleToken(data, resdata, ws) {
                 let query={'realname':doc[0].realname};
                 dbMethod.update(User,query,{"realname":audience});
                 audience=doc[0].realname;
+                pwd=doc[0].pwd;
             }
         }
         if (data.token == "notoken") {//不存在token

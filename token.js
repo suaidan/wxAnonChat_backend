@@ -1,8 +1,9 @@
 var jwt=require("jsonwebtoken");
 //生成token
-function generateToken(audience,signed){
+function generateToken(audience,pwd,signed){
     var token=jwt.sign({
         iss:"supange",
+        pwd:pwd,
         aud:audience,
         registered:signed
     },
@@ -12,11 +13,12 @@ function generateToken(audience,signed){
     });
     return token;
 }
-function verifyToken(usr,token){
+function verifyToken(usr,pwd,token){
     var result;
     jwt.verify(token,"spg_is_handsome",
         { issuer:"supange",
-        audience:usr},
+        audience:usr,
+        pwd:pwd},
         function(err,decode){
             if(err){
                 result= {"err":err,"decode":decode};
