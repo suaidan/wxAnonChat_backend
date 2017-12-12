@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a01a788d-2a82-4f4a-94ea-a1f166bdd11d" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/handleHelper.js" afterPath="$PROJECT_DIR$/handleHelper.js" />
+      <change beforePath="$PROJECT_DIR$/test.js" afterPath="$PROJECT_DIR$/test.js" />
       <change beforePath="$PROJECT_DIR$/token.js" afterPath="$PROJECT_DIR$/token.js" />
     </list>
     <ignored path="nodeProject.iws" />
@@ -29,8 +30,8 @@
       <file leaf-file-name="socketServer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/socketServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="34" />
+            <state relative-caret-position="-720">
+              <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -39,8 +40,8 @@
       <file leaf-file-name="AnalyseMessage.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AnalyseMessage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+            <state relative-caret-position="72">
+              <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -49,9 +50,32 @@
       <file leaf-file-name="handleHelper.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handleHelper.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="360">
+              <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+              <folding>
+                <marker date="1513003646985" expanded="true" signature="0:39" ph="/** Created by 一苏 on 2017/11/30. ...*/" />
+                <marker date="1513003646985" expanded="true" signature="158:227" ph="/** 对客户端传进来的信息进行解析，返回一个对象 ...*/" />
+                <marker date="1513003646985" expanded="true" signature="268:3582" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="389:499" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="560:670" ph="//..." />
+                <marker date="1513003646985" expanded="true" signature="699:2561" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="709:842" ph="/** 这里主要是验证现在传进来的用户名是否和数据库中的一样 ...*/" />
+                <marker date="1513003646985" expanded="true" signature="885:1150" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="928:1140" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="1188:1267" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="1300:2514" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="1409:2174" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="1514:1863" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="1578:1683" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="1741:1845" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="1904:2024" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="2030:2104" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="2180:2504" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="2279:2369" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="2375:2489" ph="{...}" />
+                <marker date="1513003646985" expanded="true" signature="2626:3580" ph="//..." />
+                <marker date="1513003646985" expanded="true" signature="3601:3627" ph="{&quot;token&quot;: handleToken...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -59,8 +83,8 @@
       <file leaf-file-name="test.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1044">
-              <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+            <state relative-caret-position="563">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -69,8 +93,8 @@
       <file leaf-file-name="dbMethod.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dbMethod.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2844">
-              <caret line="79" column="41" lean-forward="false" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
+            <state relative-caret-position="720">
+              <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -79,8 +103,8 @@
       <file leaf-file-name="db.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="740">
-              <caret line="32" column="10" lean-forward="true" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+            <state relative-caret-position="131">
+              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -89,8 +113,8 @@
       <file leaf-file-name="token.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/token.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="23">
+              <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -124,10 +148,10 @@
         <option value="$PROJECT_DIR$/AnalyseMessage.js" />
         <option value="$PROJECT_DIR$/socketServer.js" />
         <option value="$PROJECT_DIR$/db.js" />
-        <option value="$PROJECT_DIR$/test.js" />
         <option value="$PROJECT_DIR$/dbMethod.js" />
-        <option value="$PROJECT_DIR$/token.js" />
         <option value="$PROJECT_DIR$/handleHelper.js" />
+        <option value="$PROJECT_DIR$/token.js" />
+        <option value="$PROJECT_DIR$/test.js" />
       </list>
     </option>
   </component>
@@ -201,7 +225,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -214,16 +237,18 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="Settings.JavaScript" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="nodejs_interpreter_path" value="F:/node/node" />
     <property name="js-jscs-nodeInterpreter" value="F:\node\node.exe" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.2.1" />
+    <property name="JavaScriptWeakerCompletionTypeGuess" value="true" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -336,11 +361,12 @@
       <workItem from="1512817614829" duration="1370000" />
       <workItem from="1512908732915" duration="6652000" />
       <workItem from="1513001217665" duration="976000" />
+      <workItem from="1513086545554" duration="4645000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42868000" />
+    <option name="totallyTimeSpent" value="47513000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -360,7 +386,7 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295063" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298969" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3306544" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="39" y="529" width="1880" height="282" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="39" y="529" width="1880" height="282" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295063" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17656416" sideWeight="0.510907" order="2" side_tool="true" content_ui="tabs" />
@@ -449,7 +475,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="828">
           <caret line="23" column="33" lean-forward="false" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
-          <folding />
+          <folding>
+            <marker date="1513003646985" expanded="true" signature="0:39" ph="/** Created by 一苏 on 2017/11/30. ...*/" />
+            <marker date="1513003646985" expanded="true" signature="158:227" ph="/** 对客户端传进来的信息进行解析，返回一个对象 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="268:3582" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="389:499" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="560:670" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="699:2561" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="709:842" ph="/** 这里主要是验证现在传进来的用户名是否和数据库中的一样 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="885:1150" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="928:1140" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1188:1267" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1300:2514" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1409:2174" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1514:1863" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1578:1683" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1741:1845" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1904:2024" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2030:2104" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2180:2504" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2279:2369" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2375:2489" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2626:3580" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="3601:3627" ph="{&quot;token&quot;: handleToken...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -489,7 +538,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2160">
           <caret line="60" column="15" lean-forward="true" selection-start-line="60" selection-start-column="15" selection-end-line="60" selection-end-column="15" />
-          <folding />
+          <folding>
+            <marker date="1513003646985" expanded="true" signature="0:39" ph="/** Created by 一苏 on 2017/11/30. ...*/" />
+            <marker date="1513003646985" expanded="true" signature="158:227" ph="/** 对客户端传进来的信息进行解析，返回一个对象 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="268:3582" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="389:499" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="560:670" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="699:2561" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="709:842" ph="/** 这里主要是验证现在传进来的用户名是否和数据库中的一样 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="885:1150" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="928:1140" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1188:1267" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1300:2514" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1409:2174" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1514:1863" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1578:1683" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1741:1845" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1904:2024" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2030:2104" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2180:2504" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2279:2369" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2375:2489" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2626:3580" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="3601:3627" ph="{&quot;token&quot;: handleToken...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -521,7 +593,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1872">
           <caret line="52" column="93" lean-forward="true" selection-start-line="52" selection-start-column="93" selection-end-line="52" selection-end-column="93" />
-          <folding />
+          <folding>
+            <marker date="1513003646985" expanded="true" signature="0:39" ph="/** Created by 一苏 on 2017/11/30. ...*/" />
+            <marker date="1513003646985" expanded="true" signature="158:227" ph="/** 对客户端传进来的信息进行解析，返回一个对象 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="268:3582" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="389:499" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="560:670" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="699:2561" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="709:842" ph="/** 这里主要是验证现在传进来的用户名是否和数据库中的一样 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="885:1150" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="928:1140" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1188:1267" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1300:2514" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1409:2174" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1514:1863" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1578:1683" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1741:1845" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1904:2024" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2030:2104" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2180:2504" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2279:2369" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2375:2489" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2626:3580" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="3601:3627" ph="{&quot;token&quot;: handleToken...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -553,7 +648,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding />
+          <folding>
+            <marker date="1513003646985" expanded="true" signature="0:39" ph="/** Created by 一苏 on 2017/11/30. ...*/" />
+            <marker date="1513003646985" expanded="true" signature="158:227" ph="/** 对客户端传进来的信息进行解析，返回一个对象 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="268:3582" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="389:499" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="560:670" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="699:2561" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="709:842" ph="/** 这里主要是验证现在传进来的用户名是否和数据库中的一样 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="885:1150" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="928:1140" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1188:1267" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1300:2514" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1409:2174" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1514:1863" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1578:1683" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1741:1845" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1904:2024" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2030:2104" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2180:2504" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2279:2369" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2375:2489" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2626:3580" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="3601:3627" ph="{&quot;token&quot;: handleToken...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -601,7 +719,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="8" column="31" lean-forward="false" selection-start-line="8" selection-start-column="31" selection-end-line="8" selection-end-column="31" />
-          <folding />
+          <folding>
+            <marker date="1513003646985" expanded="true" signature="0:39" ph="/** Created by 一苏 on 2017/11/30. ...*/" />
+            <marker date="1513003646985" expanded="true" signature="158:227" ph="/** 对客户端传进来的信息进行解析，返回一个对象 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="268:3582" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="389:499" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="560:670" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="699:2561" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="709:842" ph="/** 这里主要是验证现在传进来的用户名是否和数据库中的一样 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="885:1150" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="928:1140" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1188:1267" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1300:2514" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1409:2174" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1514:1863" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1578:1683" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1741:1845" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1904:2024" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2030:2104" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2180:2504" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2279:2369" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2375:2489" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2626:3580" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="3601:3627" ph="{&quot;token&quot;: handleToken...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -750,59 +891,82 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AnalyseMessage" />
-    <entry file="file://$PROJECT_DIR$/socketServer.js">
+    <entry file="file://$PROJECT_DIR$/AnalyseMessage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="12" column="31" lean-forward="false" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="34" />
+        <state relative-caret-position="72">
+          <caret line="2" column="26" lean-forward="true" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AnalyseMessage.js">
+    <entry file="file://$PROJECT_DIR$/socketServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        <state relative-caret-position="-720">
+          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dbMethod.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2844">
-          <caret line="79" column="41" lean-forward="false" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/token.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="15" column="29" lean-forward="false" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        <state relative-caret-position="720">
+          <caret line="20" column="9" lean-forward="true" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1044">
-          <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
+        <state relative-caret-position="563">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/token.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="25" column="26" lean-forward="true" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="740">
-          <caret line="32" column="10" lean-forward="true" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+        <state relative-caret-position="131">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/handleHelper.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="38" column="31" lean-forward="true" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="360">
+          <caret line="22" column="38" lean-forward="true" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
+          <folding>
+            <marker date="1513003646985" expanded="true" signature="0:39" ph="/** Created by 一苏 on 2017/11/30. ...*/" />
+            <marker date="1513003646985" expanded="true" signature="158:227" ph="/** 对客户端传进来的信息进行解析，返回一个对象 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="268:3582" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="389:499" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="560:670" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="699:2561" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="709:842" ph="/** 这里主要是验证现在传进来的用户名是否和数据库中的一样 ...*/" />
+            <marker date="1513003646985" expanded="true" signature="885:1150" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="928:1140" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1188:1267" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1300:2514" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1409:2174" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1514:1863" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1578:1683" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1741:1845" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="1904:2024" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2030:2104" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2180:2504" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2279:2369" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2375:2489" ph="{...}" />
+            <marker date="1513003646985" expanded="true" signature="2626:3580" ph="//..." />
+            <marker date="1513003646985" expanded="true" signature="3601:3627" ph="{&quot;token&quot;: handleToken...}" />
+          </folding>
         </state>
       </provider>
     </entry>
