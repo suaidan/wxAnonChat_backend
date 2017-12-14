@@ -1,42 +1,49 @@
 let tokens = require("./token");
-var dbMethod = require("./dbMethod");
-var db = require("./db");
-var User = db.User;
+let dbMethod = require("./dbMethod");
+let db = require("./db");
+let User = db.User;
 function handleToken(data,resData,ws) {
     var audience = data.name;
     var pwd="temppwd";
-    var resData = {name: audience};//返回的数据
-    function makeToken(regis) {
-        resData.token = tokens.generateToken(audience,pwd,regis);
+    function makeToken(name,pwd,regis) {
+        resData.token = tokens.generateToken(name,pwd,regis);
         resData.registered = regis;
     }
     if(data.token==="notoken"){//不存在token
-        var token=makeToken(false);
-    }else if(data.oldname!==undefined){//用户名没有改变
-        var verifyResult = tokens.verifyToken(audience, data.token);
+        makeToken(audience,pwd,false);
+    }
+    else if(data.oldname!==undefined){//用户名发生改变
+        var verResult = tokens.verifyToken(data.oldname, data.token);
+        if(verResult.err){
+            makeToken(audience,pwd,false);
+        }
+        else{//audience这里相当于新名称
+           dbMethod.update(User,{"realname":verResult.aud},{"realname":audience},updateHandle);
+
+        }
+
         let newToken=AnaVerifyResult(verifyResult);
+    }else{//用户名未改变
+
+    }
+    function updateHandle(obj){
+        if(obj.msg==="suc"){
+            if(verResult.pwd==="temppwd"){
+                makeToken(data.name,pwd,false);
+            }else{
+                dbMethod.findDoc(User,{"realname":audience},callback)
+            }
+        }
+        if(obj.msg==="err"){
+
+        }
     }
 }
 
 function AnaVerifyResult(result) {
     if (result.err) {//token出错
-        var err = result.err;
-        if (err.message == "jwt expired") {//超时
-            if (verifyResult.registered == false) {
-                //token超时且用户未注册
-                makeToken(false);
-            }
-            if (verifyResult.registered == true) {
-                //token超时且用户已注册
-                makeToken(true);
-            }
-        } else if (err.message = "invalid token") {
-            //伪造的token
-            resData = {reason: "token is invalid", token: ""}
-        } else {
-            resData = {reason: err, token: ""}
-        }
-        console.log("token is wrong: %s", err);
+
+        console.log("token is wrong: %s", result.err);
     } else {//token正确
         console.log(verifyResult);
         if (verifyResult.registered) {

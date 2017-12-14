@@ -52,8 +52,7 @@ wss.on("connection",function(ws, resquest){
         console.log("request data is:%s",JSON.parse(message).token);
         console.log("request name is:%s",JSON.parse(message).name);
         var data=JSON.parse(message);
-        var resdata={};
-        Analyse.AnalyseMsg(handler,message,resdata,ws);
+        Analyse.AnalyseMsg(handler,message,ws);
         console.log("response data is:%s",data.token);
         socketArray[data.name] = ws;
     })

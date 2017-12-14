@@ -3,7 +3,8 @@
  * @param message 小程序发送的消息
  * @param resdata 要返回的消息
  */
-function analyse(handler, message, resdata, ws) {
+function analyse(handler, message,  ws) {
+    let resdata={};
     var reqdata = JSON.parse(message);
     switch (reqdata.type) {
         case "token":

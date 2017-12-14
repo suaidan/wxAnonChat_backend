@@ -79,13 +79,19 @@ function findDoc(moduleName, query, callback) {
  * @param query 查询字符串
  * @param updateOpt 要更新的选项和内容，如{pwd:xxxxx}
  */
-function update(moduleName, query, updateOpt) {
+function update(moduleName, query, updateOpt,callback) {
     moduleName.update(query, updateOpt, function (err, doc) {
+        let result={};
         if (err) {
+            result.msg="err";
+            result.data=err;
             console.log(err)
         } else {
-            console.log(doc)
+            result.msg="suc";
+            result.data=doc;
+            console.log(doc);
         }
+        callback(result);
     })
 }
 

@@ -7,10 +7,7 @@ function generateToken(audience,pwd,signed){
         aud:audience,
         registered:signed
     },
-    "spg_is_handsome",
-    {
-        expiresIn:signed?"30days":"3days"
-    });
+    "spg_is_handsome");
     return token;
 }
 function verifyToken(usr,token){
