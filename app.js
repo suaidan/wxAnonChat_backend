@@ -19,7 +19,7 @@ const sessionMiddleware = waferSession({
     appSecret: config.appSecret,
     loginPath: '/login',
     store: new MongoStore({
-        url: `mongodb://${config.mongoUser}:${config.mongoPass}@${config.mongoHost}:${config.mongoPort}/${config.mongoDb}`
+        url: 'mongodb://${config.mongoUser}:${config.mongoPass}@${config.mongoHost}:${config.mongoPort}/${config.mongoDb}'
     })
 });
 app.use(sessionMiddleware);

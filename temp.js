@@ -1,3 +1,7 @@
+/**
+ * Created by supange.
+ * statement: temporary file .
+ */
 let tokens = require("./token");
 let dbMethod = require("./dbMethod");
 let db = require("./db");

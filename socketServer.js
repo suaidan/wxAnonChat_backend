@@ -5,18 +5,18 @@ const Analyse=require('./AnalyseMessage');
 const express = require('express');
 const http = require('http');
 const https = require('https');
-var privateKey  = fs.readFileSync('resource/private.pem', 'utf8');
-var certificate = fs.readFileSync('resource/file.crt', 'utf8');
-var credentials = {key: privateKey, cert: certificate};
+let privateKey  = fs.readFileSync('resource/private.pem', 'utf8');
+let certificate = fs.readFileSync('resource/file.crt', 'utf8');
+let credentials = {key: privateKey, cert: certificate};
 //凑字数
 const app = express();
-var server = http.createServer(app);
+let server = http.createServer(app);
 const httpsServer = https.createServer(credentials, app);
-var PORT = 8000;
-var SSLPORT = 8766;
-var socketArray = {};
+let PORT = 8000;
+let SSLPORT = 8766;
+let socketArray = {};
 const wss = new ws.Server({ server });
-var handler=require("./handleHelper");
+let handler=require("./handleHelper");
 //用来传递处理函数
 // const dbMethod = require("./dbMethod");
 // *************************http服务和https服务**********************************
@@ -51,7 +51,7 @@ wss.on("connection",function(ws, resquest){
         console.log("message is :"+message)
         console.log("request data is:%s",JSON.parse(message).token);
         console.log("request name is:%s",JSON.parse(message).name);
-        var data=JSON.parse(message);
+        let data=JSON.parse(message);
         Analyse.AnalyseMsg(handler,message,ws);
         console.log("response data is:%s",data.token);
         socketArray[data.name] = ws;
