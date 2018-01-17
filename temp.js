@@ -1,6 +1,6 @@
 /**
  * Created by supange.
- * statement: temporary file .
+ * statement: 根据新逻辑写的处理token的函数
  */
 let tokens = require("./token");
 let dbMethod = require("./dbMethod");

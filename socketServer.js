@@ -1,3 +1,6 @@
+/**
+ * 这个应该是主要的文件，从这里开始
+ */
 const url = require('url');
 const ws = require('ws');//用来创建websocket
 const fs = require('fs');//对系统文件及目录进行读写操作

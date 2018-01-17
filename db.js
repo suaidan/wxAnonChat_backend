@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
-    var dbURL = "mongodb://localhost:27017/chatApp";
-var db = mongoose.connect(dbURL);
+let mongoose = require("mongoose");
+    let dbURL = "mongodb://localhost:27017/chatApp";
+let db = mongoose.connect(dbURL);
     mongoose.connection.on("connected",function(){
         console.log("connect to "+dbURL)
     })
@@ -10,9 +10,9 @@ var db = mongoose.connect(dbURL);
     mongoose.connection.on("disconnected",function(){
         console.log("mongodb disconnected")
     })
-var Schema = mongoose.Schema;
+let Schema = mongoose.Schema;
 // 存放用户数据
-var user = new Schema({
+let user = new Schema({
     username : {type:String},
     realname:{type:String},
     pwd : {type:String},
@@ -22,7 +22,7 @@ var user = new Schema({
     avatar : {type:String}//存放路径
 });
 //存放聊天内容
-var content = new Schema({
+let content = new Schema({
     userId : {type:Number,index:true},
     to:{type:String},//存放发给谁的
     text : {type:String},
@@ -31,7 +31,7 @@ var content = new Schema({
     readed : {type:Boolean, default:false}
 });
 //存放用户消息列表
-var rooms = new Schema({
+let rooms = new Schema({
     list : {type:Object},
     userId : {type:Number,index : true}
 })

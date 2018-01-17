@@ -1,27 +1,29 @@
 /**
  * Created by 一苏 on 2017/11/30.
  */
-var tokens = require("./token");
-var dbMethod = require("./dbMethod");
-var db = require("./db");
-var User = db.User;
+let tokens = require("./token");
+let dbMethod = require("./dbMethod");
+let db = require("./db");
+let User = db.User;
 
 /**
- * 对客户端传进来的信息进行解析，返回一个对象
- * @param message 客户端传进来的信息，即reqdata
+ * 处理不同的token
+ * @param data
+ * @param resdata
+ * @param ws
  */
 function handleToken(data, resdata, ws) {
-    var audience = data.name;
-    var pwd="";
-    var resData = {name: audience};//返回的数据
+    let audience = data.name;
+    let pwd="";
+    let resData = {name: audience};//返回的数据
     function makeToken(regis) {
         resData.token = tokens.generateToken(audience, pwd,regis);
         resData.registered = regis;
     }
 
     //查询数据库,比较耗费时间。
-    var query = {'realname': audience}
-//     var doc=dbMethod.findDoc(User,query);
+    let query = {'realname': audience}
+//     let doc=dbMethod.findDoc(User,query);
 //     if(doc.indexOf(err)){
 //         console.log(err)
 //     }
@@ -31,27 +33,27 @@ function handleToken(data, resdata, ws) {
          * 若用户更改，则对数据库进行更新，并且使用旧名称进行token验证
          * 若验证成功，就使用新名称进行重新生成token。
          */
-        if(doc.msg=="suc"||doc.data!=null){
-            if(doc[0].realname!=audience){
+        if(doc.msg==="suc"||doc.data!==null){
+            if(doc[0].realname!==audience){
                 let query={'realname':doc[0].realname};
                 dbMethod.update(User,query,{"realname":audience});
                 audience=doc[0].realname;
                 pwd=doc[0].pwd;
             }
         }
-        if (data.token == "notoken") {//不存在token
+        if (data.token === "notoken") {//不存在token
             makeToken(false);
             return resData;
         } else if (data.token.length > 0) {
-            var verifyResult = tokens.verifyToken(audience, data.token);
+            let verifyResult = tokens.verifyToken(audience, data.token);
             if (verifyResult.err) {//token出错
-                var err = verifyResult.err;
-                if (err.message == "jwt expired") {//超时
-                    if (verifyResult.registered == false) {
+                let err = verifyResult.err;
+                if (err.message === "jwt expired") {//超时
+                    if (verifyResult.registered === false) {
                         //token超时且用户未注册
                         makeToken(false);
                     }
-                    if (verifyResult.registered == true) {
+                    if (verifyResult.registered === true) {
                         //token超时且用户已注册
                         makeToken(true);
                     }
@@ -79,16 +81,16 @@ function handleToken(data, resdata, ws) {
 
     //todo:需要进一步编写
     //用于平时进行对话
-    // var arr = new Array({id:123,name:"supange",text:"smart",count:10,updated:"2017-1-12"},
+    // let arr = new Array({id:123,name:"supange",text:"smart",count:10,updated:"2017-1-12"},
     //   { id: 234, name: "spg",text: "smart", updated: "2017-1-12"},
     //   { id: 345, name: "zks",text: "smart", updated: "2017-1-12"})
-    // var initData = {};
+    // let initData = {};
     // initData.cmd = "CMD";
     // initData.subCmd = "ROOMS";
     // initData.rooms = arr;
     // ws.send(JSON.stringify(initData));
 //****************************************
-    // foreach(var key in messageArr){
+    // foreach(let key in messageArr){
     //     // if(key === "notoken"){
     //     //     console.log("notoken");
     //     // }
@@ -101,7 +103,7 @@ function handleToken(data, resdata, ws) {
     //     me:true,
     //     cmd:'MESSAGE'
     // }));
-    //var messageArr=message.toString().split(" ");
+    //let messageArr=message.toString().split(" ");
     //console.log("received:"+message.toString());
 }
 
