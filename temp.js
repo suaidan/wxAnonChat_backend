@@ -7,8 +7,8 @@ let dbMethod = require("./dbMethod");
 let db = require("./db");
 let User = db.User;
 function handleToken(data,resData,ws) {
-    var audience = data.name;
-    var pwd="temppwd";
+    let audience = data.name;
+    let pwd="temppwd";
     function makeToken(name,pwd,regis) {
         resData.token = tokens.generateToken(name,pwd,regis);
         resData.registered = regis;
@@ -17,7 +17,7 @@ function handleToken(data,resData,ws) {
         makeToken(audience,pwd,false);
     }
     else if(data.oldname!==undefined){//用户名发生改变
-        var verResult = tokens.verifyToken(data.oldname, data.token);
+        let verResult = tokens.verifyToken(data.oldname, data.token);
         if(verResult.err){
             makeToken(audience,pwd,false);
         }

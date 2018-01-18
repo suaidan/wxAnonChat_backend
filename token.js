@@ -1,17 +1,16 @@
-var jwt=require("jsonwebtoken");
+let jwt=require("jsonwebtoken");
 //生成token
 function generateToken(audience,pwd,signed){
-    var token=jwt.sign({
+    return jwt.sign({
         iss:"supange",
         pwd:pwd,
         aud:audience,
         registered:signed
     },
     "spg_is_handsome");
-    return token;
 }
 function verifyToken(usr,token){
-    var result;
+    let result;
     jwt.verify(token,"spg_is_handsome",
         { issuer:"supange",
         audience:usr},
