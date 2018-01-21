@@ -19,7 +19,7 @@ let PORT = 8000;
 let SSLPORT = 8766;
 let socketArray = {};
 const wss = new ws.Server({ server });
-let handler=require("./handleHelper");
+let handler=require("./WebSocketHandler");
 //用来传递处理函数
 // const dbMethod = require("./dbMethod");
 // *************************http服务和https服务**********************************

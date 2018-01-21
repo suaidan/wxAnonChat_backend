@@ -1,8 +1,9 @@
 /**
  * Created by 一苏 on 2018/1/18.
- * statement:
+ * statement:服务器启动的入口
  */
-let start=require("./app.js").start;
+let server=require("./app.js");
 let router=require("./router.js").route;
-portNum=8000;
-start(router,8000,handler);
+let handler=require("./handler.js")
+const portNum=8000;
+server.start(router,portNum,handler);

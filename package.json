@@ -5,6 +5,7 @@
   },
   "devDependencies": {
     "express": "latest",
-    "ws": "latest"
+    "ws": "latest",
+    "jsonwebtoken": "latest"
   }
 }

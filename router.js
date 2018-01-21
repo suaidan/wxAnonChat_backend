@@ -1,6 +1,6 @@
 /**
  * Created by 一苏 on 2018/1/18.
- * statement:
+ * statement:路由函数
  */
 function route(pathname,response,handler){
     if(typeof handler[pathname] === "function"){
