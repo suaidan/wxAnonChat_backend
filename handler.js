@@ -9,17 +9,22 @@ let fs=require("fs");
  */
 function start(response){
     response.writeHead(200,{"Content-Type":"text-plain"});
-    fs.readFileSync("start.html",function(err,data){
+    console.log("here");
+    fs.readFile("D:\\project\\wxChatNode\\wxAnonChat_backend\\start.html",function(err,data){
         if(err){
+            console.log("read file error");
             response.writeHead(200,{"Content-type":"text/plain"});
             response.write("Living is a process");
+            response.end();
         }else{
             console.log(data.toString());
             response.writeHead(200,{"Content-Type":"text/html"});
             response.write(data.toString());
+            response.end();
         }
     })
-    response.end();
+    console.log("here after");
+
 }
 
 /**
