@@ -8,7 +8,8 @@ function route(pathname,response,handler){
     }
     else{
         response.writeHead(404,{"Content-Type":"text/plain"});
-        response.wrtie("好像这里什么也没有");
+        response.charset="UTF-8";
+        response.write("nothing 好像这里什么也没有");
         response.end();
     }
 }

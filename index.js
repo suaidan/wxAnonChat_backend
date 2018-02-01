@@ -4,6 +4,10 @@
  */
 let server=require("./app.js");
 let router=require("./router.js").route;
-let handler=require("./handler.js")
+let method=require("./handler.js")
 const portNum=8000;
+let handler={};
+handler["/"]=method.start;
+handler["/start"]=method.start;
+handler["/uplife"]=method.uplife;
 server.start(router,portNum,handler);

@@ -14,17 +14,27 @@ let util = require("util");
  */
 function start(route,portNum,handler) {
     function onRequest(request, response) {//目前只能识别简单的不附带数据的请求，未对请求类型做出验证。
-        let postContent="";
-        let pathname =url.parse(request.url).pathname;
-        request.setEncoding("utf-8");
-        request.on("data",function(postChunk){
-            postContent+=postChunk;
-        })
-        request.on("end",function(){
-            route(pathname,response,handler,postContent);
-        })
-        route(pathname,response,handler);
+        //这里这样处理post数据是不安全的
+        // let postContent="";
+        // let pathname =url.parse(request.url).pathname;
+        // request.setEncoding("utf-8");
+        // request.on("data",function(postChunk){
+        //     postContent+=postChunk;
+        // })
+        // request.on("end",function(){
+        //     route(pathname,response,handler,postContent);
+        // })
+        let pathname=url.parse(request.url).pathname;
+        response.charset="UTF-8";
+        console.log(request.method);
+        if(request.method==="GET"){
+            route(pathname,response,handler);
+        }
+        if(request.method==="POST"){
+            console.log("this is a post");
+        }
     }
     http.createServer(onRequest).listen(portNum);
+    console.log("httpserver is running on"+portNum);
 }
 exports.start=start;
