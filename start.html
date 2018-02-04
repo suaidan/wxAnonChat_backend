@@ -3,8 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <title>welcome</title>
+    <style type="text/css">
+        /*.backimg{*/
+            /*background-image: url(./resource/images/batman.jpg);*/
+            /*background-repeat:no-repeat;*/
+            /*background-size: cover;*/
+        /*}*/
+        body{
+
+        }
+        #showbox{
+            width: 50vw;
+            height:50vh;
+            background-color:darkgrey;
+            padding: 3px 3px 3px 2px;
+            border: 1px solid gray;
+            text-align:center;
+        }
+        .container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .backimage{
+            display: block;
+            width: 100%;
+            height: 95%;
+        }
+        .alertText{
+            color:whitesmoke;
+            font-family: "Microsoft YaHei UI" ,Serif;
+            font-size: 16px;
+            margin-top: 5px;
+        }
+    </style>
 </head>
-<body>
-这里好像什么也没有
+<body >
+<div class="container">
+    <div id="showbox">
+        <img class="backimage" src="./resource/images/batman.jpg">
+        <span class="alertText">这里好像什么也没有</span>
+    </div>
+</div>
 </body>
 </html>

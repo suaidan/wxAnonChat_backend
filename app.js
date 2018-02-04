@@ -5,6 +5,7 @@
 let http = require("http");
 let url = require("url");
 let util = require("util");
+let BufferHelper=require("./bufferHandler");
 
 /**
  * 启动服务器的方法
@@ -32,6 +33,12 @@ function start(route,portNum,handler) {
         }
         if(request.method==="POST"){
             console.log("this is a post");
+            let bufferHandler=new  BufferHelper();
+            request.on("data",bufferHandler.concat);
+            request.on("end",function(){
+                let postData=bufferHandler.toString();
+                console.log(`post data is ${postData}`);
+            })
         }
     }
     http.createServer(onRequest).listen(portNum);

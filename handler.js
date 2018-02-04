@@ -9,21 +9,22 @@ let fs=require("fs");
  */
 function start(response){
     response.writeHead(200,{"Content-Type":"text-plain"});
-    console.log("here");
-    fs.readFile("D:\\project\\wxChatNode\\wxAnonChat_backend\\start.html",function(err,data){
+    fs.readFile("./start.html",function(err,data){
         if(err){
             console.log("read file error");
+            if(err.code==="ENOENT"){
+                console.log("D:\\project\\wxChatNode\\wxAnonChat_backend\\start.html 不存在");
+            }
             response.writeHead(200,{"Content-type":"text/plain"});
             response.write("Living is a process");
             response.end();
         }else{
-            console.log(data.toString());
+            //console.log(data.toString());
             response.writeHead(200,{"Content-Type":"text/html"});
             response.write(data.toString());
             response.end();
         }
     })
-    console.log("here after");
 
 }
 
