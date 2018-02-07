@@ -106,8 +106,14 @@ function handleToken(data, resdata, ws) {
     //let messageArr=message.toString().split(" ");
     //console.log("received:"+message.toString());
 }
+function handleContent(reqdata, resdata, ws){
 
+}
+function handleIndex(reqdata, resdata, ws){
+
+}
 module.exports = {
     token: handleToken,
-
+    chatContent:handleContent,
+    indexOnload:handleIndex
 }

@@ -15,7 +15,7 @@ function analyse(handler, message,  ws) {
             handler.chatContent(reqdata, resdata, ws);
             break;
         case "indexOnload":
-            handler.indexlOnload(reqdata, resdata, ws);
+            handler.indexOnload(reqdata, resdata, ws);
             break;
         default:
             resdata = {
