@@ -15,16 +15,6 @@ let BufferHelper=require("./bufferHandler");
  */
 function start(route,portNum,handler) {
     function onRequest(request, response) {//目前只能识别简单的不附带数据的请求，未对请求类型做出验证。
-        //这里这样处理post数据是不安全的
-        // let postContent="";
-        // let pathname =url.parse(request.url).pathname;
-        // request.setEncoding("utf-8");
-        // request.on("data",function(postChunk){
-        //     postContent+=postChunk;
-        // })
-        // request.on("end",function(){
-        //     route(pathname,response,handler,postContent);
-        // })
         let pathname=url.parse(request.url).pathname;
         response.charset="UTF-8";
         console.log(request.method);
@@ -39,6 +29,9 @@ function start(route,portNum,handler) {
                 let postData=bufferHandler.toString();
                 console.log(`post data is ${postData}`);
             })
+            response.writeHead(200,{"Content-Type":"text/html"});
+            response.write("the moehod of your request is POST");
+            response.end();
         }
     }
     http.createServer(onRequest).listen(portNum);

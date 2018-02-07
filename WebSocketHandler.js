@@ -108,5 +108,6 @@ function handleToken(data, resdata, ws) {
 }
 
 module.exports = {
-    token: handleToken
+    token: handleToken,
+
 }
