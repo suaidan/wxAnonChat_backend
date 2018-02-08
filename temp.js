@@ -15,8 +15,9 @@ function handleToken(data,resData,ws) {
     }
     if(data.token==="notoken"){//不存在token
         makeToken(audience,pwd,false);
+        dbMethod.insertUser(audienece,)
     }
-    else if(data.oldname!==undefined){//用户名发生改变
+    else if(data.oldname!==void 0){//用户名发生改变
         let verResult = tokens.verifyToken(data.oldname, data.token);
         if(verResult.err){
             makeToken(audience,pwd,false);
