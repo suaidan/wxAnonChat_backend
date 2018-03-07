@@ -35,6 +35,6 @@ function start(route,portNum,handler) {
         }
     }
     http.createServer(onRequest).listen(portNum);
-    console.log("httpserver is running on"+portNum);
+    console.log("httpserver is running on："+portNum);
 }
 exports.start=start;
