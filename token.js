@@ -10,16 +10,16 @@ function generateToken(audience,pwd,signed){
     "spg_is_handsome");
 }
 function verifyToken(usr,token){
-    let result;
+    let result={};
     jwt.verify(token,"spg_is_handsome",
         { issuer:"supange",
         audience:usr},
         function(err,decode){
             if(err){
                 result= {"err":err,"decode":decode};
-                return;
+            }else{
+                result=decode;
             }
-            result=decode;
     });
     return result;
 }

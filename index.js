@@ -10,8 +10,6 @@ const ws=require("ws");
 const wsHandler=require("./WebSocketHandler");
 const portNum=8000;
 const wsPortNum=8080;
-//存放已有的websocket链接
-let socketArray={};
 //处理普通请求
 let handler={};
 handler["/"]=method.start;
@@ -26,9 +24,9 @@ wss.on("connection",function(ws){
         console.log("request data is:%s",JSON.parse(message).token);
         console.log("request name is:%s",JSON.parse(message).name);
         let data=JSON.parse(message);
-        Analyse.AnalyseMsg(wsHandler,message,ws);
+        Analyse.AnalyseMsg(wsHandler,data,ws);
         console.log("response data is:%s",data.token);
-        socketArray[data.name] = ws;
+
     })
     ws.on("close",function(code){
         console.log("closed:"+code);

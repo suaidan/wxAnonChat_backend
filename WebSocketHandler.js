@@ -5,6 +5,47 @@ let tokens = require("./token");
 let dbMethod = require("./dbMethod");
 let db = require("./db");
 let User = db.User;
+/**
+ * 存放已有的websocket链接
+ * @type {{}}
+ */
+let socketArray={};
+/**
+ * 昵称和微信名称的对照
+ * @type {{}}
+ */
+let nickToReal={};
+//已经使用的用户名
+let nameUsed=[];
+//总共注册的人数
+let registeredNum=0;
+/**
+ * 在服务器启动时获取已经注册的人数和使用的昵称，这个用来标记是否已经获取
+ * @type {boolean}
+ */
+let flag=false;
+//用来存储房间
+let rooms=[];
+
+/**
+ * 用来分配临时用户的名称和密码
+ * @returns {{name: string, pwd: string}}
+ */
+function assignGuestName(){
+    let guestName="Guest"+registeredNum;
+    let tempPwd=Math.floor(Math.random()*1000000)+guestName;
+    return {name:guestName,pwd:tempPwd}
+}
+
+
+function GetTempGuest(){
+    if(flag){
+        //在这里从数据库进行获取
+        nameUsed={};
+        registeredNum=100;
+        nickToReal={};
+    }
+}
 
 /**
  * 处理不同的token

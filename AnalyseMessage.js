@@ -21,7 +21,7 @@ function analyse(handler, message,  ws) {
             resdata = {
                 data: "404 not found"
             }
-            ws.send(JSON.toString(resdata));
+            ws.send(JSON.stringify(resdata));
             break;
     }
 }
