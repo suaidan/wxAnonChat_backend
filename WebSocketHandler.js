@@ -9,42 +9,54 @@ let User = db.User;
  * 存放已有的websocket链接
  * @type {{}}
  */
-let socketArray={};
+let socketArray = {};
 /**
  * 昵称和微信名称的对照
  * @type {{}}
  */
-let nickToReal={};
+let nickToReal = {};
 //已经使用的用户名
-let nameUsed=[];
+let nameUsed = [];
 //总共注册的人数
-let registeredNum=0;
+let registeredNum = 0;
 /**
  * 在服务器启动时获取已经注册的人数和使用的昵称，这个用来标记是否已经获取
  * @type {boolean}
  */
-let flag=false;
+let flag = false;
 //用来存储房间
-let rooms=[];
+let rooms = [];
 
 /**
  * 用来分配临时用户的名称和密码
  * @returns {{name: string, pwd: string}}
  */
-function assignGuestName(){
-    let guestName="Guest"+registeredNum;
-    let tempPwd=Math.floor(Math.random()*1000000)+guestName;
-    return {name:guestName,pwd:tempPwd}
+function assignGuestName() {
+    let guestName = "Guest" + registeredNum;
+    let tempPwd = Math.floor(Math.random() * 1000000) + guestName;
+    return {name: guestName, pwd: tempPwd}
 }
 
 
-function GetTempGuest(){
-    if(flag){
+function GetTempGuest() {
+    if (!flag) {
         //在这里从数据库进行获取
-        nameUsed={};
-        registeredNum=100;
-        nickToReal={};
+        nameUsed = {};
+        registeredNum = 100;
+        nickToReal = {};
+        flag = true;
     }
+}
+
+function register(realName) {
+    let userInfor =assignGuestName();
+    let nickName=userInfor.name;
+    let tempPwd=userInfor.pwd;
+    nameUsed[nickName]=true;
+    registeredNum++;
+    nickToReal[nickName]=realName;
+    let token = tokens.generateToken(nickName,tempPwd,false);
+    return token;
 }
 
 /**
@@ -55,12 +67,17 @@ function GetTempGuest(){
  */
 function handleToken(data, resdata, ws) {
     let audience = data.name;
-    let pwd="";
+    let pwd = "";
     let resData = {name: audience};//返回的数据
     function makeToken(regis) {
-        resData.token = tokens.generateToken(audience, pwd,regis);
+        resData.token = tokens.generateToken(audience, pwd, regis);
         resData.registered = regis;
     }
+    //没有token且未微信授权
+    if(data.token===""){
+        resData.token=register(audience);
+    }
+
 
     //查询数据库,比较耗费时间。
     let query = {'realname': audience}
@@ -74,12 +91,12 @@ function handleToken(data, resdata, ws) {
          * 若用户更改，则对数据库进行更新，并且使用旧名称进行token验证
          * 若验证成功，就使用新名称进行重新生成token。
          */
-        if(doc.msg==="suc"||doc.data!==null){
-            if(doc[0].realname!==audience){
-                let query={'realname':doc[0].realname};
-                dbMethod.update(User,query,{"realname":audience});
-                audience=doc[0].realname;
-                pwd=doc[0].pwd;
+        if (doc.msg === "suc" || doc.data !== null) {
+            if (doc[0].realname !== audience) {
+                let query = {'realname': doc[0].realname};
+                dbMethod.update(User, query, {"realname": audience});
+                audience = doc[0].realname;
+                pwd = doc[0].pwd;
             }
         }
         if (data.token === "notoken") {//不存在token
@@ -117,7 +134,8 @@ function handleToken(data, resdata, ws) {
         }
         ws.send(JSON.toString(resData));
     }
-    dbMethod.findDoc(User, query,handleDoc);
+
+    dbMethod.findDoc(User, query, handleDoc);
     //检验token
 
     //todo:需要进一步编写
@@ -147,14 +165,17 @@ function handleToken(data, resdata, ws) {
     //let messageArr=message.toString().split(" ");
     //console.log("received:"+message.toString());
 }
-function handleContent(reqdata, resdata, ws){
+
+function handleContent(reqdata, resdata, ws) {
 
 }
-function handleIndex(reqdata, resdata, ws){
+
+function handleIndex(reqdata, resdata, ws) {
 
 }
+
 module.exports = {
     token: handleToken,
-    chatContent:handleContent,
-    indexOnload:handleIndex
+    chatContent: handleContent,
+    indexOnload: handleIndex
 }
